@@ -181,8 +181,6 @@ jobs:
             type=match,pattern=v(.*)-(.*),group=1
             # branch
             type=ref,event=branch
-            # semver
-            type=semver,pattern={{version}}
       - id: meta-dockerhub-tag
         name: Metadata - Docker Hub (Tags)
         uses: docker/metadata-action@v5
@@ -206,8 +204,6 @@ jobs:
             type=match,pattern=v(.*)-(.*),group=1
             # branch
             type=ref,event=branch
-            # semver
-            type=semver,pattern={{version}}
       - id: meta-ghcr-tag
         name: Metadata - GHCR (Tags)
         uses: docker/metadata-action@v5
