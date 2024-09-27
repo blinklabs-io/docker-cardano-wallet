@@ -45,6 +45,7 @@ RUN apt-get update -y && \
     netbase \
     pkg-config \
     procps \
+    socat \
     wget \
     zlib1g && \
   rm -rf /var/lib/apt/lists/* && \
