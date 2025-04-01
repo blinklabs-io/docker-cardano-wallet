@@ -1,8 +1,8 @@
 FROM ghcr.io/blinklabs-io/haskell:9.6.6-3.12.1.0-1 AS cardano-wallet-build
 # Install cardano-wallet
-ARG WALLET_VERSION=2025.3.4
+ARG WALLET_VERSION=2025.3.31
 ENV WALLET_VERSION=${WALLET_VERSION}
-ARG WALLET_REF=tags/v2025-03-04
+ARG WALLET_REF=tags/v2025-03-31
 ENV WALLET_REF=${WALLET_REF}
 RUN echo "Building ${WALLET_REF}..." \
     && echo ${WALLET_REF} > /CARDANO_BRANCH \
@@ -15,7 +15,7 @@ RUN echo "Building ${WALLET_REF}..." \
     && cabal update \
     && cabal build all -frelease \
     && mkdir -p /root/.local/bin/ \
-    && cp -a dist-newstyle/build/$(uname -m)-linux/ghc-${GHC_VERSION}/cardano-wallet-exe-${WALLET_VERSION}/x/cardano-wallet/build/cardano-wallet/cardano-wallet /root/.local/bin/ \
+    && cp -a dist-newstyle/build/$(uname -m)-linux/ghc-${GHC_VERSION}/cardano-wallet-application-${WALLET_VERSION}/x/cardano-wallet/build/cardano-wallet/cardano-wallet /root/.local/bin/ \
     && rm -rf /root/.cabal/packages \
     && rm -rf /usr/local/lib/ghc-${GHC_VERSION}/ /usr/local/share/doc/ghc-${GHC_VERSION}/ \
     && rm -rf /code/cardano-wallet/dist-newstyle/ \
