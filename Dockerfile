@@ -1,4 +1,4 @@
-FROM ghcr.io/blinklabs-io/haskell:9.6.6-3.12.1.0-1 AS cardano-wallet-build
+FROM ghcr.io/blinklabs-io/haskell:9.6.6-3.12.1.0-2 AS cardano-wallet-build
 # Install cardano-wallet
 ARG WALLET_VERSION=2025.3.31
 ENV WALLET_VERSION=${WALLET_VERSION}
