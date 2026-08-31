@@ -12,6 +12,8 @@ RUN echo "Building ${WALLET_REF}..." \
     && git tag \
     && git checkout ${WALLET_REF} \
     && cabal configure --with-compiler=ghc-${GHC_VERSION} --disable-tests --disable-benchmarks \
+    && printf '\npackage cardano-coin-selection\n  ghc-options: -XDataKinds -Wno-unused-imports -Wno-unused-top-binds\n' >> cabal.project.local \
+    && printf '\npackage cardano-wallet-read\n  ghc-options: -Wno-error=deprecations -Wno-error=unused-imports -Wno-error=unused-matches -Wno-error=unused-top-binds\n' >> cabal.project.local \
     && cabal update \
     && cabal build exe:cardano-wallet -frelease \
     && mkdir -p /root/.local/bin/ \
