@@ -1,8 +1,8 @@
 FROM ghcr.io/blinklabs-io/haskell:9.12.3-3.14.2.0-1 AS cardano-wallet-build
 # Install cardano-wallet
-ARG WALLET_VERSION=2026.5.11
+ARG WALLET_VERSION=2026.8.21
 ENV WALLET_VERSION=${WALLET_VERSION}
-ARG WALLET_REF=tags/v2026-05-11
+ARG WALLET_REF=tags/v2026-08-21
 ENV WALLET_REF=${WALLET_REF}
 RUN echo "Building ${WALLET_REF}..." \
     && echo ${WALLET_REF} > /CARDANO_BRANCH \
